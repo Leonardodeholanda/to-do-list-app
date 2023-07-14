@@ -14,7 +14,7 @@ export const DaysContainer = styled.div`
     }
     .number-day {
         padding: 10px;
-        background-color: #000;
+        background-color: #1c1f26;
         box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.4);
         text-align: center;
         border-radius: 50%;

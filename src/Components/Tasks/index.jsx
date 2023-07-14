@@ -1,8 +1,8 @@
 
 import { useState } from 'react'
 import { v4 as uuid } from 'uuid'
-import { FaPlus, FaRegCircle, FaCheckCircle } from "react-icons/fa"
-import { AddContainer, TodaysTasks, TasksContainer, ItemsToDo } from './styles'
+import { FaPlus, FaRegCircle, FaCheckCircle, FaCheck } from "react-icons/fa"
+import { AddContainer, TodaysTasks, TasksContainer, ItemsToDo, NoTasks } from './styles'
 import { FaTrashAlt } from 'react-icons/fa'
 
 export function Tasks() {
@@ -15,7 +15,14 @@ export function Tasks() {
 
     function buttonClick() {
         if (task) {
-            (setList([...list, { id: uuid(), task, finished: false }]))
+            setList([...list, { id: uuid(), task, finished: false }])
+            setTask("")
+        }
+    }
+
+    function handleKeyDown(event) {
+        if (event.key === "Enter") {
+            buttonClick();
         }
     }
 
@@ -38,12 +45,10 @@ export function Tasks() {
     return (
         <>
             <AddContainer>
-                <input onChange={inputChange} placeholder="What do I have to do?" />
-                <button className='add-button' onClick={buttonClick}><FaPlus size={20} /></button>
+                <input type="text" value={task} onChange={inputChange} onKeyDown={handleKeyDown} placeholder="What do I have to do?" />
+                <button className='add-button' onClick={buttonClick}><FaPlus size={25} /></button>
             </AddContainer>
-
-            <TodaysTasks>Todays Tasks</TodaysTasks>
-
+            <TodaysTasks>Today&apos;s Tasks</TodaysTasks>
             <TasksContainer>
                 <ul>
                     {
@@ -57,7 +62,13 @@ export function Tasks() {
                                 </ItemsToDo>
                             )
                             )
-                        ) : <h3>You have no tasks yet</h3>
+                        ) : (
+                            <NoTasks>
+                                <FaCheck size={70} />
+                                <p>No tasks for today</p>
+                                <p>Enjoy your day</p>
+                            </NoTasks>
+                        )
                     }
                 </ul>
             </TasksContainer>

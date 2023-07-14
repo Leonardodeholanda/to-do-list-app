@@ -10,7 +10,7 @@ export const AddContainer = styled.div`
     box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
     button {
         border: none;
-        background-color: #fff;
+        background-color: #f4f7f8;
         cursor: pointer;
         color: #DFBD43;
         margin-right: 5px;
@@ -20,12 +20,14 @@ export const AddContainer = styled.div`
     }
     input {
         height: 40px;
+        width: 100%;
         border-radius: 20px;
         border: none;
         font-size: 20px;
         color: #000;
         padding-left: 10px;
         outline: none;
+        background-color: #f4f7f8;
     }
 
 `
@@ -38,10 +40,22 @@ export const TasksContainer = styled.div`
     width: 90%;
     margin: 0 auto;
     padding: 10px 0;
-    overflow-y: scroll;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+  width: 5px;
+}
+    &::-webkit-scrollbar-track {
+  background-color: #38a1691f;
+}
+    &::-webkit-scrollbar-thumb {
+  background: #DFBD43;
+  border-radius: 10px;
+}
+
     ul {
         margin: 10px 0;
         padding: 0;
+        
     }
     h3 {
         text-align: center;
@@ -55,9 +69,10 @@ export const ItemsToDo = styled.li`
         gap: 10px;
         border: 2px solid #000;
         border-radius: 30px;
-        padding: 5px;
+        padding: 0 5px;
         margin-bottom: 5px;
-        background-color: ${props => props.isFinished ? "#0f0" : "#fff" };
+        margin-right: 5px;
+        background-color: ${props => props.isFinished ? "#0c0" : "#f4f7f8"};
         
         .check-box {
             cursor: pointer;
@@ -79,4 +94,14 @@ export const ItemsToDo = styled.li`
         button:hover {
             opacity: 0.8;
         }
+`
+export const NoTasks = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30% 0;
+    p {
+        font-size: 20px;
+        margin: 0;
+    }
 `
