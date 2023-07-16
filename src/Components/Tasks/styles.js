@@ -72,11 +72,13 @@ export const ItemsToDo = styled.li`
         padding: 0 5px;
         margin-bottom: 5px;
         margin-right: 5px;
-        background-color: ${props => props.isFinished ? "#0c0" : "#f4f7f8"};
+        background-color: ${props => props.isFinished ? "#DFBD43" : "#f4f7f8"};
+        opacity: ${props => props.isFinished ? "0.5" : "1"};
+  filter: ${props => props.isFinished ? "grayscale(100%)" : "none"};
         
         .check-box {
             cursor: pointer;
-            color: #DFBD43;
+            color: ${props => props.isFinished ? "#f4f7f8" : "#DFBD43"};
             border: none;
             background: none;
         }
@@ -87,12 +89,13 @@ export const ItemsToDo = styled.li`
         .trash-button {
             cursor: pointer;
             margin-left: auto;
-            color: #DFBD43;
+            color: ${props => props.isFinished ? "#f4f7f8" : "#DFBD43"};
             border: none;
             background: none;
         }
         button:hover {
             opacity: 0.8;
+            
         }
 `
 export const NoTasks = styled.div`
