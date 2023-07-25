@@ -36,7 +36,7 @@ export const TodaysTasks = styled.h3`
     margin: 10px 10px 0;
 `
 export const TasksContainer = styled.div`
-    height: 55%;
+    height: 350px;
     width: 90%;
     margin: 0 auto;
     padding: 10px 0;
