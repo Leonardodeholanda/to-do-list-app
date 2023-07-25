@@ -36,7 +36,7 @@ export const TodaysTasks = styled.h3`
     margin: 10px 10px 0;
 `
 export const TasksContainer = styled.div`
-    height: 350px;
+    height: 300px;
     width: 90%;
     margin: 0 auto;
     padding: 10px 0;
@@ -102,7 +102,7 @@ export const NoTasks = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 30% 0;
+    margin: 25% 0;
     p {
         font-size: 20px;
         margin: 0;
